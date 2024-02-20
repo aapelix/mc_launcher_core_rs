@@ -11,6 +11,9 @@ keywords = ["minecraft", "minecraft_downloader", "minecraft_launcher"]
 categories = ["algorithms"]
 homepage = "https://github.com/aapelix/mc_launcher_core_rs"
 documentation = "https://github.com/aapelix/mc_launcher_core_rs#readme"
+exclude = [
+    "./idea/"
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
