@@ -12,7 +12,7 @@ categories = ["algorithms"]
 homepage = "https://github.com/aapelix/mc_launcher_core_rs"
 documentation = "https://github.com/aapelix/mc_launcher_core_rs#readme"
 exclude = [
-    "./idea/"
+    "./idea/*"
 ]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
