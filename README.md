@@ -1,18 +1,19 @@
-# mc_launcher_core_rs
+# mc_launcher_core_msa
 
 A minecraft launcher library written in rust
 
-https://crates.io/crates/minecraft_launcher_core
+https://crates.io/crates/minecraft_launcher_core_msa
 
 # Platforms supported
 
 Since this library uses https://github.com/shasankp000/mcdl_core_rs/ as an underlying dependency, which only supports windows at the moment, this library(all functions in this library) support only windows at the moment as well.
 
-However support will be extended to Linux and MacOS soon.
+However, support will be extended to Linux and macOS soon.
 
 # Note
 
-To launch mc, you need to have an account at www.ely.by since the launcher lib supports user authentication from www.ely.by only as of the moment
+To launch mc, you need to have a Microsoft Account that owns minecraft or an account at www.ely.by since the launcher lib supports user authentication from www.ely.by only as of the moment
+If you decide to use MSA authentication you will need to handle getting the MSA token yourself
 
 # Functions
 
@@ -21,7 +22,7 @@ To launch mc, you need to have an account at www.ely.by since the launcher lib s
 Downloads the latest jdk runtime for minecraft (currently it is JDK 17)
 As of the moment only windows is supported. I will extend this to linux soon.
 
-`minecraft_launcher_core::main::runtime_downloader::download_runtime;`
+`minecraft_launcher_core_msa::main::runtime_downloader::download_runtime;`
 
 `download_runtime()`
 
@@ -31,7 +32,7 @@ Checks whether java is installed on the system or not
 
 Checks only for windows at the moment
 
-``` minecraft_launcher_core::main::launcher_cli::is_java_installed`; ``
+``` minecraft_launcher_core_msa::main::launcher_cli::is_java_installed`; ``
 
 ` let is_java_installed = is_java_installed();`
 
@@ -41,13 +42,13 @@ Checks only for windows at the moment
 
 Gets the total system memory in a string.
 
-`minecraft_launcher_core::main::launcher_cli::get_total_sys_mem;`
+`minecraft_launcher_core_msa::main::launcher_cli::get_total_sys_mem;`
 
 ` let total_mem = get_total_sys_mem();`
 
 `println!("{}", total_mem)`
 
-For 2GB, it is "2", 4GB, it is "4", 8GB, it is "8" and so on..
+For 2GB, it is "2", 4GB, it is "4", 8GB, it is "8" and so on...
 
 # init()
 
@@ -55,16 +56,16 @@ Basic initialization work. All mc launcher related functions should call init() 
 
 Alternatively the init() function can also be called at first time run only.
 
-`use minecraft_launcher_core::main::launcher_cli::init;`
+`use minecraft_launcher_core_msa::main::launcher_cli::init;`
 `init("minecraft installation directory", refresh_data:true)`
 
-If refresh_data is set to true, the settings.json file will be overriden with default values everytime
+If refresh_data is set to true, the settings.json file will be overridden with default values everytime
 
 ## ely_by_authenticator
 
 Does user authentication at www.ely.by and saves the data to settings.json
 
-`use minecraft_launcher_core::main::launcher_cli::ely_by_authenticator;`
+`use minecraft_launcher_core_msa::main::launcher_cli::ely_by_authenticator;`
 
 `ely_by_authenticator("your username at ely.by", "your password at ely.by", "minecraft_installation_directory")`
 
@@ -72,7 +73,7 @@ Does user authentication at www.ely.by and saves the data to settings.json
 
 Downloads the ely_by authlib
 
-`use minecraft_launcher_core::main::launcher_cli::download_ely_authlib;`
+`use minecraft_launcher_core_msa::main::launcher_cli::download_ely_authlib;`
 
 ` download_ely_authlib("minecraft installation directory")`
 
@@ -82,15 +83,15 @@ Launches minecraft for the specified game_version, it's type(release or snapshot
 
 This function has only been tested with "release" versions of minecraft. Snapshot support will be added in the next release in both the underlying dependency and this library.
 
-Supports www.ely.by authentication for now
+Supports Microsoft and www.ely.by authentication for now
 
-Supports only Windows at the moment. I will soon extend this to Linux and MacOS as well.
+Supports only Windows at the moment. I will soon extend this to Linux and macOS as well.
 
 You can ignore the "password" and "username" if you are using msa authentication.
 
 You can ignore the "token" if you are using ely.by authentication.
 
-`use minecraft_launcher_core::launcher_cli::launch_mc_vanilla;`
+`use minecraft_launcher_core_msa::launcher_cli::launch_mc_vanilla;`
 
 `launch_mc_vanilla(auth_type:"ely_by/msa", game_version:"1.19.2", r#type: "release/snapshot", username: "your username on ely.by", password: "your password on ely.by", token: "final token in the microsoft authentication scheme " alloc_mem: "2")`
 
