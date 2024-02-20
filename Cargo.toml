@@ -1,6 +1,6 @@
 [package]
 name = "minecraft_launcher_core_msa"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["aapelix <hello@aapelix.dev>"]
 description = "A Minecraft launcher library written in rust"
@@ -11,8 +11,6 @@ keywords = ["minecraft", "minecraft_downloader", "minecraft_launcher"]
 categories = ["algorithms"]
 homepage = "https://github.com/aapelix/mc_launcher_core_rs"
 documentation = "https://github.com/aapelix/mc_launcher_core_rs#readme"
-
-
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
